@@ -3,10 +3,10 @@
 It is a behavioral project pattern that enable selecting an algorithm at runtime.
 
 ## Characteristics
-* **Strategy**: It is a common interface/absctract class. It declares a method. 
+* **Strategy**: It is a common interface/absctract class. It declares a method which must be implemented by concrete strategy class. 
 * **Concrete Strategy**: Implement different variations of an algorithm.
-* **Strategy Factory**: It is a factory that creates an concrete strategy at runtime.
-* **Client**: The beginning of all. It calls the strategy's factory and then invoke the strategy.
+* **Strategy Factory**: It is a factory that creates an concrete strategy class at runtime.
+* **Client**: The beginning of all. It calls the strategy's factory and then invoke the concrete strategy.
 
 ![Strategy_Flow](./images/strategy_flow.jpg)
 
@@ -49,7 +49,7 @@ public class CalculateSalaryCasualStrategy : ICalculateSalaryStrategy
 }
 ```
 
-Then we create the *CalculateSalaryStrategyFactory* which are responsible for creating the concrete strategy class. In this example the concrete strategy class is created according to ContractType enum:
+Then we create the *CalculateSalaryStrategyFactory* which is responsible for creating the concrete strategy class. In this example the concrete strategy class is created according to ContractType enum:
 ```rb
 public static ICalculateSalaryStrategy GetCalculateSalaryStrategy(ContractType type) =>
     type switch
@@ -60,7 +60,7 @@ public static ICalculateSalaryStrategy GetCalculateSalaryStrategy(ContractType t
     };
 ```
 
-And finally, the client class that calls the factory class to get a specific strategy, then calls Calculate method from the strategy class:
+And finally, the client class that calls the factory class to get a specific strategy, then calls Calculate method from the concrete strategy class:
 ```rb
 public class EmployeeService
 {
