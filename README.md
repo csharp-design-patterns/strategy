@@ -13,8 +13,7 @@ It is a behavioral project pattern that enable selecting an algorithm at runtime
 It is important to mention that there are differents way to create the strategy flow.
 
 ## Hands-on
-I did not focus on 
-
+The goal of this project is just to show the strategy flow's implementation.
 
 ### Commands Implementation
 We need to create the interface/absctract class ICalculateSalaryStrategy, which will contain all the method that we will need:
@@ -39,11 +38,14 @@ public class CalculateSalaryPermanentStrategy : ICalculateSalaryStrategy
     }
 }
 
-public double Calculate(Employee employee)
+public class CalculateSalaryCasualStrategy : ICalculateSalaryStrategy
 {
-    // ... do something
-    Console.WriteLine("Calculating casual employee salary...");
-    return double.MaxValue;
+    public double Calculate(Employee employee)
+    {
+        // ... do something
+        Console.WriteLine("Calculating casual employee salary...");
+        return double.MaxValue;
+    }
 }
 ```
 
